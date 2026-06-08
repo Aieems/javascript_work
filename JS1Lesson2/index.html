@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <title>Домашнее задание - занятие 2</title>
+    <script>
+      // 1. Создайте цикл, который:
+      // 1.1. Просит пользователя ввести значения (числа), используя prompt и сохраняет их в массив.
+      // 1.2. Выходит из цикла (заканчивает запрашивать значения), когда пользователь введёт
+      // нечисловое значение, пустую строку или нажмёт кнопку «Отмена». Для ввода используйте prompt().
+      // 1.3. Подсчитывает и возвращает сумму элементов массива.
+      // Число 0 (ноль) – считается числом, не останавливайте ввод значений при вводе ноля пользователем.
+
+      // Решение:
+      // let arrayNum = [];
+      // let num;
+      // let summ = 0;
+      // do{
+      //   let input = prompt("Введите число: ");
+      //   arrayNum = num.push;
+      //   console.log(arrayNum);
+      //   summ += num;
+      // }while(arrayNum !== typeof(number) || arrayNum !== ' ')
+      // console.log(summ);
+
+
+      // let arrayNum = [];
+      // let num;
+      // let summ = 0;
+      // do{
+      //   let input = prompt("Введите число: ");
+        
+      //   if (input === null || input == '' || isNaN(input) ){
+      //     break;
+      //   }
+
+      //   num = +input;
+      //   arrayNum.push(num)
+      //   summ += num;
+      // }while(true)
+      // console.log(arrayNum);
+      // console.log(summ);
+
+
+      // 2. Дан массив чисел
+      let numbers = [0, -23, 5, 90, 104, 80, -55];
+      // С помощью цикла и условий найдите и выведите в консоль наибольшее и наименьшее число массива.
+      // *Найдите отдельно сумму отрицательных и положительных элементов массива.
+      // *Найдите среднее арифметическое элементов массива (сумма элементов, делить на количество).
+
+      let max = 0;
+      let min = 0;
+      let summPol = 0;
+      let summOtr = 0;
+      let summ = 0;
+      let i = 0;
+      // Решение:
+      for (let number of numbers) {
+        if (number > max ){
+          max = number;
+        } else if(number < min){
+          min = number;
+        }
+
+        if(number < 0){
+          summOtr += number;
+        }else{
+          summPol += number;
+        }
+        i++;
+        summ = summOtr + summPol;
+        summ = Math.round(summ / i);
+      }
+      console.log(`Отрицательные: ${summOtr}, полож: ${summPol}, сумма: ${summ}`);
+      console.log(`min: ${min}, max: ${max} `);
+
+      
+      // 3. Дан массив
+      let languages = [
+        "javascript",
+        "php",
+        "php",
+        "typescript",
+        "javascript",
+        "html",
+        "html",
+        "java",
+        "javascript",
+      ];
+      // 1. Удалите повторяющиеся элементы массива.
+      // *2. Выведите в консоль, сколько раз повторялся каждый элемент массива (включая удаленные элементы массива).
+
+      // Решение:
+
+
+    </script>
+  </head>
+  <body></body>
+</html>
