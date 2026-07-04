@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Практика: таблица товаров</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #333;
+        padding: 10px 14px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #ffd37a;
+        font-weight: 700;
+      }
+
+      tr.highlight {
+        background-color: #fff3bf;
+      }
+
+      tr.not-available {
+        color: #999;
+        background-color: #f1f1f1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Практика: таблица товаров</h1>
+
+    <p>
+      Нужно создать таблицу товаров через JavaScript. Задание похоже на
+      календарь: нужно создать table, thead, tbody, строки tr и ячейки td. Но
+      вместо дней месяца здесь нужно вывести список товаров из массива объектов.
+    </p>
+
+    <div id="products"></div>
+
+    <script>
+      const products = [
+        {
+          title: "Ноутбук",
+          category: "Техника",
+          price: 95000,
+          inStock: true,
+        },
+        {
+          title: "Книга по JavaScript",
+          category: "Книги",
+          price: 2500,
+          inStock: true,
+        },
+        {
+          title: "Наушники",
+          category: "Техника",
+          price: 12000,
+          inStock: false,
+        },
+        {
+          title: "Ежедневник",
+          category: "Канцелярия",
+          price: 800,
+          inStock: true,
+        },
+        {
+          title: "Клавиатура",
+          category: "Техника",
+          price: 7000,
+          inStock: true,
+        },
+      ];
+
+      // Задание:
+      // Напишите функцию createProductsTable(elementLink, products, highlightCategory).
+      //
+      // elementLink — DOM-элемент, внутрь которого нужно вставить таблицу.
+      // products — массив товаров.
+      // highlightCategory — категория, которую нужно подсветить.
+      //
+      // Что должна сделать функция:
+      // 1. Создать таблицу через document.createElement("table").
+      // 2. Добавить шапку таблицы:
+      //    Название | Категория | Цена | Наличие
+      // 3. Перебрать массив products через цикл.
+      // 4. Для каждого товара создать строку tr.
+      // 5. Внутри строки создать 4 ячейки td:
+      //    название, категория, цена, наличие.
+      // 6. Если категория товара равна highlightCategory,
+      //    добавить строке класс "highlight".
+      // 7. Если товара нет в наличии, добавить строке класс "not-available".
+      // 8. Вставить готовую таблицу внутрь elementLink.
+      //
+      // Пример:
+      // createProductsTable(productsContainer, products, "Техника");
+      //
+      // В результате все товары категории "Техника" должны быть подсвечены.
+      // Товары, которых нет в наличии, должны быть серыми.
+
+      function createProductsTable(elementLink, products, highlightCategory) {
+        let table = document.createElement('table')
+        let thead = document.createElement('thead')
+        thead.innerHTML = '<tr><th>Название</th><th>Категория</th><th>Цена</th><th>Наличие</th></tr>'
+        elementLink.append(table)
+        table.append(thead)
+
+        let tbody = document.createElement('tbody')
+        for (product of products){
+          if(product)
+          tbody.insertAdjacentHTML('beforeend', `<tr>
+            <td>${product.title}</td>
+            <td>${product.category}</td>
+            <td>${product.price}</td>
+            <td>${product.inStock ? 'В наличии' : 'Нет в наличии'}</td>
+            </tr>`)
+
+          
+        }
+        table.append(tbody)
+        
+      }
+
+      const productsContainer = document.getElementById("products");
+
+      createProductsTable(productsContainer, products, "Техника");
+    </script>
+  </body>
+</html>
